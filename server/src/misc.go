@@ -270,7 +270,7 @@ func secondsToDurationString(seconds int) (string, error) {
 func setSeed(seed string) {
 	crc64Table := crc64.MakeTable(crc64.ECMA)
 	intSeed := crc64.Checksum([]byte(seed), crc64Table)
-	rand.Seed(int64(intSeed))
+	rand.Seed(int64(intSeed) + 1)
 }
 
 func stringInSlice(a string, slice []string) bool {
