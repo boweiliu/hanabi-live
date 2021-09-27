@@ -20,6 +20,20 @@ func (p *GamePlayer) GetChopIndex() int {
 	return len(p.Hand) - 1
 }
 
+
+// GetUntouchedLeftIndex gets the index of the newest (left-most) unclued card
+// (used for the "Card Cycling" feature)
+func (p *GamePlayer) GetUntouchedLeftIndex() int {
+	for i := len(p.Hand)-1; i >= 0; i-- {
+		if !p.Hand[i].Touched {
+			return i
+		}
+	}
+	// Their hand is filled with clued cards,
+	// so the chop is considered to be their newest (left-most) card
+	return len(p.Hand) - 1
+}
+
 func (p *GamePlayer) InitTime(options *Options) {
 	if options.Timed {
 		// In timed games, each player starts with the base time specified in the options
@@ -115,18 +129,18 @@ func (p *GamePlayer) CycleHand() {
 	}
 
 	// Find the chop card
-	chopIndex := p.GetChopIndex()
+	rotatingCardIndex := p.GetLeftUntouchedIndex()
 
 	// We don't need to reorder anything if the chop is slot 1 (the left-most card)
-	if chopIndex == len(p.Hand)-1 {
+	if rotatingCardIndex == len(p.Hand)-1 {
 		return
 	}
 
-	chopCard := p.Hand[chopIndex]
+	rotatingCard := p.Hand[rotatingCardIndex]
 
 	// Remove the chop card from their hand
-	p.Hand = append(p.Hand[:chopIndex], p.Hand[chopIndex+1:]...)
+	p.Hand = append(p.Hand[:rotatingCardIndex], p.Hand[rotatingCardIndex+1:]...)
 
 	// Add it to the end (the left-most position)
-	p.Hand = append(p.Hand, chopCard)
+	p.Hand = append([]*Card(chopCard},p.Hand...)
 }
