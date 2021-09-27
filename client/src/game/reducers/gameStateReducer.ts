@@ -339,17 +339,13 @@ function cardCycle(
     return;
   }
 
-  // We don't need to reorder anything if the chop is slot 1 (the left-most card)
-  const chopIndex = handRules.chopIndex(hand, deck);
-  if (chopIndex === hand.length - 1) {
-    return;
-  }
+  const rotatingCardIndex = handRules.leftUntouchedIndex(hand, deck);
 
   // Remove the chop card from their hand
-  const removedCardOrder = hand.splice(chopIndex, 1)[0];
+  const removedCardOrder = hand.splice(rotatingCardIndex, 1)[0];
 
-  // Add it to the end (the left-most position)
-  hand.push(removedCardOrder);
+  // Add it to the end (the right-most position)
+  hand.splice(hand.length, 0, removedCardOrder);
 }
 
 function throwItInAHolePlayedOrMisplayed(
