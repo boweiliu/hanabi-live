@@ -67,6 +67,24 @@ export function chopIndex(
   return hand.length - 1;
 }
 
+export function leftUntouchedIndex(
+  hand: readonly number[],
+  deck: readonly CardState[],
+): number {
+  // The chop is defined as the newest (left-most) unclued card
+  for (let i = hand.length-1; i >=0; i--) {
+    const cardOrder = hand[i];
+    const card = deck[cardOrder];
+    if (!cardRules.isClued(card)) {
+      return i;
+    }
+  }
+
+  // Their hand is filled with clued cards,
+  // so the chop is considered to be their newest (left-most) card
+  return hand.length - 1;
+}
+
 export function cardIsOnChop(
   hand: readonly number[],
   deck: readonly CardState[],
