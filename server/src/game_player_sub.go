@@ -131,11 +131,6 @@ func (p *GamePlayer) CycleHand() {
 	// Find the chop card
 	rotatingCardIndex := p.GetLeftUntouchedIndex()
 
-	// We don't need to reorder anything if the chop is slot 1 (the left-most card)
-	if rotatingCardIndex == len(p.Hand)-1 {
-		return
-	}
-
 	rotatingCard := p.Hand[rotatingCardIndex]
 
 	// Remove the chop card from their hand
