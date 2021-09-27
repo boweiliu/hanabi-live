@@ -29,9 +29,8 @@ func (p *GamePlayer) GetUntouchedLeftIndex() int {
 			return i
 		}
 	}
-	// Their hand is filled with clued cards,
-	// so the chop is considered to be their newest (left-most) card
-	return len(p.Hand) - 1
+	// Their hand is filled with clued cards
+	return -1
 }
 
 func (p *GamePlayer) InitTime(options *Options) {
@@ -130,6 +129,11 @@ func (p *GamePlayer) CycleHand() {
 
 	// Find the chop card
 	rotatingCardIndex := p.GetLeftUntouchedIndex()
+
+	// don't rotate if there are no untouched cards
+	if (rotatingCardIndex == -1) {
+		return
+	}
 
 	rotatingCard := p.Hand[rotatingCardIndex]
 

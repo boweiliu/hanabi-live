@@ -340,6 +340,7 @@ function cardCycle(
   }
 
   const rotatingCardIndex = handRules.leftUntouchedIndex(hand, deck);
+  if (rotatingCardIndex === -1) return;
 
   // Remove the chop card from their hand
   const removedCardOrder = hand.splice(rotatingCardIndex, 1)[0];

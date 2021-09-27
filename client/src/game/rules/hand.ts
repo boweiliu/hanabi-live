@@ -80,9 +80,8 @@ export function leftUntouchedIndex(
     }
   }
 
-  // Their hand is filled with clued cards,
-  // so the chop is considered to be their newest (left-most) card
-  return hand.length - 1;
+  // Their hand is filled with clued cards
+  return -1;
 }
 
 export function cardIsOnChop(
