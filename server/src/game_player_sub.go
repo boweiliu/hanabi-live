@@ -128,7 +128,7 @@ func (p *GamePlayer) CycleHand() {
 	}
 
 	// Find the chop card
-	rotatingCardIndex := p.GetLeftUntouchedIndex()
+	rotatingCardIndex := p.GetUntouchedLeftIndex()
 
 	// don't rotate if there are no untouched cards
 	if (rotatingCardIndex == -1) {
@@ -141,5 +141,5 @@ func (p *GamePlayer) CycleHand() {
 	p.Hand = append(p.Hand[:rotatingCardIndex], p.Hand[rotatingCardIndex+1:]...)
 
 	// Add it to the end (the left-most position)
-	p.Hand = append([]*Card(chopCard},p.Hand...)
+	p.Hand = append([]*Card{rotatingCard},p.Hand...)
 }
