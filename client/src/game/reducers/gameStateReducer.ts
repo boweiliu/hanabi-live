@@ -346,7 +346,7 @@ function cardCycle(
   const removedCardOrder = hand.splice(rotatingCardIndex, 1)[0];
 
   // Add it to the end (the right-most position)
-  hand.splice(hand.length, 0, removedCardOrder);
+  hand.splice(0, 0, removedCardOrder);
 }
 
 function throwItInAHolePlayedOrMisplayed(
