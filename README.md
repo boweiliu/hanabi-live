@@ -46,7 +46,7 @@ See the [installation documentation](https://github.com/Zamiell/hanabi-live/tree
 
 ## Issues I had
 
-
+1. don't forget to edit `server/src/misc.go` and hardcode in a seed change to `func setSeed` , this will ensure that you don't play duplicate games with the real hanab.live
 1. first tried `docker-compose up -d` didnt work (prebuilt docker images are down??) not sure why
 2. forgot to copy .env.example into .env which resulting in docker trying to create a directory there - bad. rmdir it and do the cp
 3. then `docker compose -f docker-development.yml up -d`, which brought up the postgres but not the server. the issue was that someone deleted .env.docker.exaample so the docker container couldn't connect to postgres
@@ -59,3 +59,4 @@ See the [installation documentation](https://github.com/Zamiell/hanabi-live/tree
 10. Tried to ngrok http 1313 -- worked but websocket check in client/src/websocketInit.ts failed the domain check. Setting partial DOMAIN=.ngrok-free.app didn't work either. have to start the ngrok server then copy the exact url
 11. now it works, but every time you take down the ngrok server you have to grab the new url, export DOMAIN=<>, rerun bash run.sh, then again ln -s main.*.min.js main.min.js in paublic/js/bundles
 12. also should fix the docker, why doesn't it build the client properly
+13. 
