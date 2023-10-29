@@ -43,3 +43,19 @@ See the [installation documentation](https://github.com/Zamiell/hanabi-live/tree
 - [Antoine Bauza](https://en.wikipedia.org/wiki/Antoine_Bauza) created Hanabi, which was the inspiration for this website. If you enjoy playing online, then you should purchase a physical copy of the game, since he will presumably receive a portion of the proceeds.
 - [Keldon Jones](http://keldon.net/) was the original creator of the slick client-side user interface.
 - [Hyphen-ated](https://github.com/Hyphen-ated/) coded many useful add-on features for Keldon's site that are integrated into Hanab Live.
+
+## Issues I had
+
+
+1. first tried `docker-compose up -d` didnt work (prebuilt docker images are down??) not sure why
+2. forgot to copy .env.example into .env which resulting in docker trying to create a directory there - bad. rmdir it and do the cp
+3. then `docker compose -f docker-development.yml up -d`, which brought up the postgres but not the server. the issue was that someone deleted .env.docker.exaample so the docker container couldn't connect to postgres
+4. forgot to install/install_database_schema.sh
+5. still was having issue, there's something wrong with the docker build -- we no longer ship the frontend packages in the same way it seems.
+6. tried to run the server locally, so needed to set PORT in .env
+7. server index.html came up but javascript bundle wouldn't load. Something to do with main.$VERSION.min.js. Setting VERSION env variable before bash run.sh didn't help. Gave up and ln -s main.$VERSION.min.js main.min.js after every run.sh or packages/client/build_client.sh
+8. Came up on localhost
+9. Tried to serve up localhost via socat - didn't cross the WSL boundary.
+10. Tried to ngrok http 1313 -- worked but websocket check in client/src/websocketInit.ts failed the domain check. Setting partial DOMAIN=.ngrok-free.app didn't work either. have to start the ngrok server then copy the exact url
+11. now it works, but every time you take down the ngrok server you have to grab the new url, export DOMAIN=<>, rerun bash run.sh, then again ln -s main.*.min.js main.min.js in paublic/js/bundles
+12. also should fix the docker, why doesn't it build the client properly
