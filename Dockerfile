@@ -6,7 +6,7 @@ WORKDIR /root/hanabi-live
 COPY .env.example .env
 COPY tsconfig.json tsconfig.json
 COPY package.json package.json
-COPY package-lock.json package-lock.json
+COPY yarn.lock yarn.lock
 COPY packages packages
 COPY public public
 RUN npm install
