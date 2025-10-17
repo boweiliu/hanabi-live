@@ -20,7 +20,7 @@ If you want to learn the basics of the game with a helpful video, then [watch th
   - 2/3 players --> 5 cards each
   - 4/5 players --> 4 cards each
   - 6 players --> 3 cards each
-- The team always starts off with 8 clue tokens.
+- The team always starts off with 16 clue tokens.
 - The play stacks for each color are located in the center of the table. All players play their cards on to the shared play stacks. To start off with, nothing is played on the play stacks.
 - The discard pile is located off to the side. All players discard their cards to the shared discard pile. To start off with, no cards are discarded.
 - A random player goes first.
@@ -46,7 +46,7 @@ If you want to learn the basics of the game with a helpful video, then [watch th
 
 - A player can pick any card from their hand and discard it. (They do not need to know exactly what the card is.)
 - The card goes to the discard pile and the team gets an additional clue token.
-- Players are not allowed to discard if the team has 8 clue tokens available.
+- Players are not allowed to discard if the team has 16 clue tokens available.
 
 <br />
 
@@ -109,4 +109,4 @@ If you want to learn the basics of the game with a helpful video, then [watch th
 ## Other Rules
 
 - Successfully playing a 5 gives the team an additional clue. (This is a "reward" for finishing a play stack.)
-- If you finish a play stack while the team is at 8 clues, then the extra clue is forfeit.
+- If you finish a play stack while the team is at 16 clues, then the extra clue is forfeit.

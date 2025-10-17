@@ -100,7 +100,7 @@ exports.step1 = (socket, data) => {
   globals.currentGames[data.gameID] = {
     actions: [],
     baseTime,
-    clueNum: 8,
+    clueNum: 16,
     datetimeCreated: moment().format("YYYY-MM-DD HH:mm:ss"), // This is the MariaDB format
     datetimeFinished: null,
     deck: [],

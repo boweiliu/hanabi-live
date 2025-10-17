@@ -149,11 +149,11 @@ const step1 = (socket, data) => {
     playerDrawCard(data);
   } else if (data.type === 2) {
     // Discard
-    // We are not allowed to discard while at 8 clues
+    // We are not allowed to discard while at 16 clues
     // (the client should enforce this, but do a check just in case)
-    if (game.clueNum === 8) {
-      logger.warn(`User "${data.username}" tried to discard while at 8 clues.`);
-      data.reason = "You cannot discard while at 8 clues.";
+    if (game.clueNum === 16) {
+      logger.warn(`User "${data.username}" tried to discard while at 16 clues.`);
+      data.reason = "You cannot discard while at 16 clues.";
       notify.playerError(socket, data);
       return;
     }
@@ -518,9 +518,9 @@ function playerPlayCard(data) {
     // Give the team a clue if a 5 was played
     if (card.rank === 5) {
       game.clueNum += 1;
-      if (game.clueNum > 8) {
-        // The extra clue is wasted if they are at 8 clues already
-        game.clueNum = 8;
+      if (game.clueNum > 16) {
+        // The extra clue is wasted if they are at 16 clues already
+        game.clueNum = 16;
       }
     }
 

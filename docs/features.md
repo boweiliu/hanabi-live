@@ -248,7 +248,7 @@ A "❗" icon will appear on cards that are "critical". (Critical cards are cards
 ### Real-Life Mode
 
 - In real-life mode, cards will no longer be filled in with positive and negative clues.
-- Furthermore, extra UI elements are turned off (8 clue warning, etc.).
+- Furthermore, extra UI elements are turned off (16 clue warning, etc.).
 
 ### Reverse Hand Direction
 
@@ -392,7 +392,7 @@ In-game, the right side of the screen shows the _Pace_ and the _Efficiency_ for 
   - `cards gotten` is simply `cards that are already played + cards that are touched by a clue`.
 - A clue is considered to be lost when:
   - a card misplays (because it could have been discarded instead)
-  - a stack is completed when the team already has 8 clues in the bank
+  - a stack is completed when the team already has 16 clues in the bank
 - Note that this efficiency calculation assumes that players are playing with _Good Touch Principle_ - that all clued cards will eventually be played. If your team does not play with _Good Touch Principle_, then this efficiency calculation won't be very useful.
 - Note that the calculation will automatically account for clued cards that are globally known to be trash. Such cards will not be included in the `cards gotten` term.
 - In-game, Hanabi Live shows you two different efficiency numbers.

@@ -88,7 +88,7 @@ const (
 	WebsiteName = "Hanab Live"
 
 	// The maximum amount of clues (and the amount of clues that players start the game with)
-	MaxClueNum = 8
+	MaxClueNum = 16
 
 	// The maximum amount of strikes/misplays allowed before the game ends
 	MaxStrikeNum = 3

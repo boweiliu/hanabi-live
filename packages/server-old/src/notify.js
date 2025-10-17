@@ -362,7 +362,7 @@ exports.playerAction = (socket, data) => {
     type: "action",
     resp: {
       canClue: game.clueNum > 0,
-      canDiscard: game.clueNum < 8,
+      canDiscard: game.clueNum < 16,
       canBlindPlayDeck: game.deckIndex === game.deck.length - 1,
     },
   });
